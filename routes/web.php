@@ -16,3 +16,14 @@ Route::get('/', function () {
 });
 
 /** RUTAS PARA PROBAR EL LONGIN **/
+/**
+ * ESTE METODO SE COMUNICA CON EL LOGINCONTROLLER EN EL METODO LOGIN
+ * SE NECESITA MANDAR: email y password en el REQUEST
+ */
+Route::name('login')->post('/Login', 'LogInController@Login');
+
+/**
+ * METODO QUE SE COMUNICOA CON USER CONTROLLER EN EL METODO REGISTRACLIENTE
+ * SE NECESITA MANDAR: nombre, email y password
+ */
+Route::name('registrar')->post('/Registrar', 'UserController@RegistrarCliente');

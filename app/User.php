@@ -10,13 +10,14 @@ class User extends Authenticatable
 {
     use Notifiable;
     protected $primaryKey = "iduser";
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'nombre', 'email', 'password',
+        'nombre', 'email', 'password', 'idrol',
     ];
 
     /**
@@ -30,6 +31,11 @@ class User extends Authenticatable
 
     public function getRol()
     {
-        return $this->belongsTo('App\Rol');
+        return $this->belongsTo('App\Rol','idrol');
+    }
+
+    public function getAuthPassword()
+    {
+      return $this->password;
     }
 }
