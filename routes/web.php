@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/** RUTAS PARA PROBAR EL LONGIN **/
