@@ -27,7 +27,7 @@ class LogInController extends Controller
         if($validator->fails())
         {
             //dd($validator->messages()); <---- ES PARA MANDAR MENSAJES DE QUE PORQUE FALLO A LA VISTA
-            return "DATOS REQUERIDOS NO CUMPLIDOS";
+            return redirect('login')->with('danger','Datos requeridos no cumplidos');
         }
         else
         {
@@ -38,14 +38,14 @@ class LogInController extends Controller
                  * 
                  */
                 $usuario = Auth::user(); //<------ ESTA VARIABLE SE PUEDE ENVIAR A LA VISTA PARA DESPLEGAR INFO DEL USUARIO EN SESSION
-                return "SI LOGRO HACER LOGIN";
+                return redirect('cliente')->with('success',$request->email);   
             }
             else
             {
                 /**
                  * DE LO CONTRARIO ENTONCES PUEDE REDIRECCIONAR AL LOG IN DE NUEVO
                  */
-                return "USUARIO NO EXISTE EN BASE DE DATOS";
+                return redirect('login')->with('danger','Usuario y/o contraseña incorrecta');
             }
         }
     }
