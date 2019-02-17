@@ -11,8 +11,29 @@
 |
 */
 
+/*
++---------------------------
+| VISTAS
++---------------------------
+*/ 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/login', function () {
+    return view('LoginRegistro/login');
+});
+
+
+Route::get('/registro', function () {
+    return view('LoginRegistro/registro');
+});
+/*
++------------
+| Vista clientes
+*/ 
+Route::get('/cliente', function () {
+    return view('VistaCliente/cliente');
 });
 
 /** RUTAS PARA PROBAR EL LONGIN **/
@@ -20,10 +41,10 @@ Route::get('/', function () {
  * ESTE METODO SE COMUNICA CON EL LOGINCONTROLLER EN EL METODO LOGIN
  * SE NECESITA MANDAR: email y password en el REQUEST
  */
-Route::name('login')->post('/Login', 'LogInController@Login');
+Route::post('Login', 'LogInController@Login');
 
 /**
  * METODO QUE SE COMUNICOA CON USER CONTROLLER EN EL METODO REGISTRACLIENTE
  * SE NECESITA MANDAR: nombre, email y password
  */
-Route::name('registrar')->post('/Registrar', 'UserController@RegistrarCliente');
+Route::post('Registrar', 'UserController@RegistrarCliente');

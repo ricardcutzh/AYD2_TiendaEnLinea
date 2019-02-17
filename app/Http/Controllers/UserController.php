@@ -24,7 +24,8 @@ class UserController extends Controller
          if($validator->fails())
         {
             //dd($validator->messages()); <---- ES PARA MANDAR MENSAJES DE QUE PORQUE FALLO A LA VISTA
-            return "DATOS REQUERIDOS NO CUMPLIDOS";
+
+            return redirect('registro')->with('danger','Datos requeridos no cumplidos');
         }
         else
         {
@@ -37,7 +38,7 @@ class UserController extends Controller
 
             $usuario->save();
 
-            return "USUARIO GUARDADO EXITOSAMENTE";
+            return redirect('login')->with('success','Usuario creado exitosamente, por favor inice sesion');
         }
      }
 }
