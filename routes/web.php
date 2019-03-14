@@ -50,6 +50,17 @@ Route::post('Login', 'LogInController@Login');
 Route::post('Registrar', 'UserController@RegistrarCliente');
 
 /*
++------------
+| VISTA DE ADMINISTRACION
+*/ 
+Route::get('/Admin', 'LogInController@admin');
+Route::get('/Crear_Producto', function(){
+    return view('VistaAdmin/nuevoProducto');
+});
+Route::get('/Crear_Categoria', function(){
+    return view('VistaAdmin/nuevaCategoria');
+});
+/*
  +----------------------------
  | CATEGORIAS
  -----------------------------
@@ -72,3 +83,4 @@ Route::post('/Nuevo_Producto', 'ProductoController@RegistrarProducto')->name('nu
 Route::get('/Eliminar_Producto/{id}', 'ProductoController@EliminarProducto')->name('eliminar_categoria');
 /* RUTA PARA PODER LISTAR LOS PRODUCTOS */
 Route::get('/Productos', 'ProductoController@ListarProductos')->name('get_productos');
+

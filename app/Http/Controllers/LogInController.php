@@ -49,4 +49,12 @@ class LogInController extends Controller
             }
         }
     }
+
+    /**
+     * METODO QUE ME RETORNA LA VISTA DEL ADMIN
+     */
+    public function admin(Request $request)
+    {
+        return view('VistaAdmin/admin');
+    }
 }
