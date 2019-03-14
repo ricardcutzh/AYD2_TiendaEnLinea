@@ -48,3 +48,27 @@ Route::post('Login', 'LogInController@Login');
  * SE NECESITA MANDAR: nombre, email y password
  */
 Route::post('Registrar', 'UserController@RegistrarCliente');
+
+/*
+ +----------------------------
+ | CATEGORIAS
+ -----------------------------
+ */
+/* RUTA PARA REGISTRAR CATEGORIAS */
+Route::post('/Nueva_Categoria', 'CategoriaController@RegistrarCategoria')->name('nueva_categoria');
+/* RUTA PARA PODER ELIMINAR UNA CATEGORIA */
+Route::get('/Eliminar_Categoria/{id}', 'CategoriaController@EliminarCategoria')->name('eliminar_categoria');
+/* RUTA PARA PODER LISTAR LAS CATEGORIAS QUE EXISTEN */
+Route::get('/Categorias', 'CategoriaController@ListarCategorias')->name('get_categorias');
+
+/*
+ +----------------------------
+ | PRODUCTOS
+ -----------------------------
+ */
+/* RUTA PARA REGISTAR PRODUCTOS */
+Route::post('/Nuevo_Producto', 'ProductoController@RegistrarProducto')->name('nuevo_producto');
+/* RUTA PARA PODER ELIMINAR UN PRODUCTO */
+Route::get('/Eliminar_Producto/{id}', 'ProductoController@EliminarProducto')->name('eliminar_categoria');
+/* RUTA PARA PODER LISTAR LOS PRODUCTOS */
+Route::get('/Productos', 'ProductoController@ListarProductos')->name('get_productos');
