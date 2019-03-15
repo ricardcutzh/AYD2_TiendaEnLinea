@@ -60,7 +60,16 @@ Route::get('/Crear_Producto', function(){
 Route::get('/Crear_Categoria', function(){
     return view('VistaAdmin/nuevaCategoria', ['error' => false, 'correcto'=> false]);
 });
+
+Route::get('/Crear_Empleado', function(){
+    return view('VistaAdmin/nuevoEmpleado');
+});
+Route::get('/Lista_Empleado', function(){
+    return view('VistaAdmin/listaEmpleado');
+});
+
 Route::get('/Crear_Producto','ProductoController@getPageNewProduct');
+
 /*
  +----------------------------
  | CATEGORIAS
@@ -87,3 +96,19 @@ Route::get('/Productos', 'ProductoController@ListarProductos')->name('get_produc
 /* RUTA PARA LISTAR EL CATALOGO DE LOS PRODUCTOS */
 Route::get('/Catalogo', 'ProductoController@getCatalogo');
 
+
+
+/*
+ +----------------------------
+ | Clientes
+ -----------------------------
+ */
+/* RUTA PARA REGISTAR PRODUCTOS */
+Route::post('Nuevo_Empleado', 'EmpleadoController@RegistrarEmpleado');
+/* RUTA PARA PODER ELIMINAR UN PRODUCTO */
+Route::get('Eliminar_Empleado/{id}', 'EmpleadoController@eliminar');
+/* RUTA PARA PODER LISTAR LOS PRODUCTOS */
+//Route::get('/Empleados', 'EmpleadoController@ListarEmpleados')->name('get_empleados');
+
+Route::get('/Empleados','EmpleadoController@index');
+ 

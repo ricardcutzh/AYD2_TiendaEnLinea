@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
             'estado' => true
         ]);
 
+
+        DB::table('rols')->insert([
+            'nombre' => 'Empleados',
+            'estado' => true
+        ]);
+
         DB::table('users')->insert([
             'nombre' => 'admin',
             'email' => 'admin',
@@ -30,6 +36,16 @@ class DatabaseSeeder extends Seeder
             'idrol' => 1
         ]);
 
+
+        DB::table('empleados')->insert([
+            'nombre' => 'Juan',
+            'apellido' => 'Perez',
+            'cui' => 'N-3243423',
+            'email' => 'perez@gmail.com',
+            'edad' => '12',
+            'direccion' => 'Guatemala'
+        ]);
+      
         //INSERTANDO CATEGORIAS POR DEFECTO
         DB::table('categorias')->insert([
             'nombre' => 'Calzado',
@@ -75,7 +91,7 @@ class DatabaseSeeder extends Seeder
             'talla' => 'Small',
             'img' => 'AUN NO DISPONIBLE',
             'precio' => 150.00,
-            'idcategoria' => 2
+            'idcategoria' => 2 
         ]);
     }
 }

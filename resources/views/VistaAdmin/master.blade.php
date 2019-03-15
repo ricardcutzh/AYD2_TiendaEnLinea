@@ -63,6 +63,15 @@
 									<li class="nav-item"><a class="nav-link" href="/Categorias">Ver Categorias</a></li>
 								</ul>
                             </li>
+
+                            <li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Empleados</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="/Crear_Empleado">Nueva Empleado</a></li>
+									<li class="nav-item"><a class="nav-link" href="/Empleados">Ver Empleados</a></li>
+								</ul>
+                            </li>
                             <!--
 							<li class="nav-item submenu dropdown active">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -109,6 +118,29 @@
 		</div> 
 	</section>
 	 
+	<section >
+		<div class="container">  
+				@if (\Session::has('success'))
+				
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						<strong>Agregado!</strong> {{ \Session::get('success') }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+                @endif  
+                
+				@if (\Session::has('danger')) 
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> {{ \Session::get('danger') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif  
+
+		</div> 
+	</section>
 
     <!--================Login Box Area =================-->
     
