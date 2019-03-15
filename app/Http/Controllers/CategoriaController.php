@@ -16,11 +16,11 @@ class CategoriaController extends Controller
         $categoria->descripcion = $request->descripcion;
         if($categoria->save())
         {
-            return "Categoria guardada";
+            return view('VistaAdmin/nuevaCategoria', ['error' => false, 'correcto'=> true]);
         }
         else
         {
-            return "fallo guardar categoria";
+            return view('VistaAdmin/nuevaCategoria', ['error' => true, 'correcto'=> false]);
         }
     }
 
@@ -32,20 +32,23 @@ class CategoriaController extends Controller
         {
             if($catego->delete())
             {
-                return "categoria eliminada";
+                $categorias = Categoria::paginate(20);
+                return view('VistaAdmin/verCategorias',['categorias'=> $categorias, 'error' => false, 'correcto' => true]);
             }
             else
             {
-                return "fallo eliminar la categoria";
+                $categorias = Categoria::paginate(20);
+                return view('VistaAdmin/verCategorias',['categorias'=> $categorias, 'error' => true, 'correcto' => false]);
             }
         }
-        return "no existe esta categoria";
+        $categorias = Categoria::paginate(20);
+        return view('VistaAdmin/verCategorias',['categorias'=> $categorias, 'error' => true, 'correcto' => false]);
     }
 
     //FUNCION PARA LISTAR LAS CATEGORIAS
     public function ListarCategorias(Request $request)
     {
-        dd(Categoria::all());
-        return "listar todas las categorias";
+        $categorias = Categoria::paginate(20);
+        return view('VistaAdmin/verCategorias',['categorias'=> $categorias, 'error' => false, 'correcto' => false]);
     }
 }

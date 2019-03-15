@@ -48,6 +48,7 @@
 							<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
 							<li class="nav-item"><a class="nav-link" href="/login">Salir</a></li>
 							<li class="nav-item"><a class="nav-link" href="/registro">Registro</a></li>
+							<li class="nav-item"><a class="nav-link" href="/Catalogo">Catalogo</a></li>
                             <!--
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"

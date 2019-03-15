@@ -18,32 +18,52 @@ class ProductoController extends Controller
         $producto->img = $request->img;
         $producto->precio = $request->precio;
         $producto->idcategoria = $request->idcategoria;
-        $producto->save();
-        return "registrar un producto";
+        $categorias = Categoria::all();
+        if($producto->save())
+        {
+            return view('VistaAdmin/nuevoProducto', ['error' => false, 'correcto'=> true, 'categorias'=> $categorias]);
+        }
+        return view('VistaAdmin/nuevoProducto', ['error' => true, 'correcto'=> false, 'categorias'=> $categorias]);
     }
 
     // FUNCION QUE SE ENCARGA DE ELIMINAR UN PRODUCTO
     public function EliminarProducto($id)
     {
         $producto = Producto::find($id);
+        
         if($producto)
         {
             if($producto->delete())
             {
-                return "producto eliminado";
+                $productos = Producto::paginate(20);
+                return view('VistaAdmin/verProductos',['productos'=> $productos, 'error' => false, 'correcto' => true]);
             }
             else
             {
-                return "fallo eliminar el producto";
+                $productos = Producto::paginate(20);
+                return view('VistaAdmin/verProductos',['productos'=> $productos, 'error' => true, 'correcto' => false]);
             }
         }
-        return "no existe el producto";
+        $productos = Producto::paginate(20);
+        return view('VistaAdmin/verProductos',['productos'=> $productos, 'error' => true, 'correcto' => false]);
     }
 
     //FUNCION QUE SE ENCARGA DE LISTAR LOS PRODUCTOS EXISTENTES
     public function ListarProductos(Request $request)
     {
-        dd(Producto::all());
-        return "listando los productos";
+        $productos = Producto::paginate(20);
+        return view('VistaAdmin/verProductos',['productos'=> $productos, 'error' => false, 'correcto' => false]);
+    }
+
+    public function getPageNewProduct(Request $request)
+    {
+        $categorias = Categoria::all();
+        return view('VistaAdmin/nuevoProducto', ['error' => false, 'correcto'=> false, 'categorias'=> $categorias]);
+    }
+
+    public function getCatalogo(Request $request)
+    {
+        $productos = Producto::paginate(20);
+        return view('VistaCliente/catalogo', ['productos'=> $productos]);
     }
 }
