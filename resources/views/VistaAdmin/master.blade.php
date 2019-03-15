@@ -51,16 +51,16 @@
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Productos</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="#">Nuevo Producto</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Ver Productos</a></li>
+									<li class="nav-item"><a class="nav-link" href="/Crear_Producto">Nuevo Producto</a></li>
+									<li class="nav-item"><a class="nav-link" href="/Productos">Ver Productos</a></li>
 								</ul>
                             </li>
                             <li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Categorias</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="#">Nueva Categoria</a></li>
-									<li class="nav-item"><a class="nav-link" href="#">Ver Categorias</a></li>
+									<li class="nav-item"><a class="nav-link" href="/Crear_Categoria">Nueva Categoria</a></li>
+									<li class="nav-item"><a class="nav-link" href="/Categorias">Ver Categorias</a></li>
 								</ul>
                             </li>
 
