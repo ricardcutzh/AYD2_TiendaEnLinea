@@ -104,7 +104,7 @@ Route::get('/Catalogo', 'ProductoController@getCatalogo');
  -----------------------------
  */
 /* RUTA PARA REGISTAR PRODUCTOS */
-Route::post('Nuevo_Empleado', 'EmpleadoController@RegistrarEmpleado');
+Route::post('Nuevo_Empleado/', 'EmpleadoController@RegistrarEmpleado');
 /* RUTA PARA PODER ELIMINAR UN PRODUCTO */
 Route::get('Eliminar_Empleado/{id}', 'EmpleadoController@eliminar');
 /* RUTA PARA PODER LISTAR LOS PRODUCTOS */
