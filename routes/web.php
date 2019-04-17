@@ -112,3 +112,11 @@ Route::get('Eliminar_Empleado/{id}', 'EmpleadoController@eliminar');
 
 Route::get('/Empleados','EmpleadoController@index');
  
+/*
+ +----------------------------
+ | Carrito
+ -----------------------------
+ */
+/* RUTA PARA AGREGAR PRODUCTOS AL CARRITO */
+Route::post('Nuevo_Carrito/', 'CarritoController@agregarCarrito');
+Route::post('Carrito/', 'CarritoController@index');
