@@ -39,12 +39,18 @@ class LogInController extends Controller
                  */
  
                 $usuario = Auth::user(); //<------ ESTA VARIABLE SE PUEDE ENVIAR A LA VISTA PARA DESPLEGAR INFO DEL USUARIO EN SESSION
-                 
+                $request->session()->put('idUsuario',$usuario->iduser);
+                $request->session()->put('nombre',$usuario->nombre);
+
                 if($this->esAdminsitrador($usuario)){ 
                     return redirect('Admin')->with('success',"Bienvenido Administrador"); 
                 }
 
+
+                //Guardando la sesión del usuario
+
                 error_log($this->esAdminsitrador($usuario));
+
                 return redirect('cliente')->with('success',$request->email);   
             }
             else
