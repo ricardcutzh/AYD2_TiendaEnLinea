@@ -8,11 +8,16 @@
             <div class="cart_inner">
                 <div class="table-responsive">
                     <table class="table">
-                        <thead> 
+                        <thead>
+                        @php
+                        $i = 0;
+                        @endphp
+                            @foreach($carrito as $producto)
 
-                            @foreach($carrito as $producto) 
-
-                            <tr>  
+                        @php
+                        $i += $producto->precio*$producto->cantidad;
+                        @endphp
+                            <tr>
 
                                 <td>
                                     <div class="media">
@@ -42,17 +47,43 @@
                                 </td>
                             </tr>
                             @endforeach
+                            <tr>
 
-                            <tr class="out_button_area"> 
+                                <td>
+                                <h4>Total:</h4>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                <h3>${{$i}}</h3>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div>
+                <form class="row contact_form" enctype="multipart/form-data" method="post" action="{{url('RealizarCompra')}}" id="contactForm" novalidate="novalidate">
+                @csrf
+
+                    <table>
+                        <tbody>
+                            <tr class="out_button_area">
                                 <td>
                                     <div class="checkout_btn_inner d-flex align-items-center">
-                                        <a class="gray_btn" href="/Catalogo">Seguir Comprando</a>
-                                        <a class="primary-btn" href="#">Finalizar Compra</a>
+                                        <a class="gray_btn" href="/Catalogo">Seguir Comprando</a> 
+                                        <button type="submit" value="submit" class="primary-btn">Finalizar Compra</button>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> 
+                </form>
+
                 </div>
             </div>
         </div>
