@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -183,7 +183,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This array of class aliases will be registered when this application
-    | is started. However, feel free to register as many as you wish as
+    | is started. However, feel free to register a'HTMLMin' => GrahamCampbell\HTMLMin\Facades\HTMLMin::class,s many as you wish as
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
@@ -223,7 +223,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
     ],
+
 
 ];
