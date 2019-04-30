@@ -120,3 +120,14 @@ Route::get('/Empleados','EmpleadoController@index');
 /* RUTA PARA AGREGAR PRODUCTOS AL CARRITO */
 Route::post('Nuevo_Carrito/', 'CarritoController@agregarCarrito');
 Route::post('Carrito/', 'CarritoController@index');
+
+
+
+Route::post('/registro', 'CarritoController@p_registrar');
+Route::post('/login', 'CarritoController@p_login');
+Route::post('/cuentas_no_asociadas','CarritoController@p_asociar');
+Route::post('/cuentas_asociadas','CarritoController@p_asociar');
+
+
+
+Route::post('RealizarCompra/', 'CarritoController@p_compra');

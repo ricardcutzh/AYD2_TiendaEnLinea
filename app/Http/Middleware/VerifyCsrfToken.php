@@ -24,6 +24,10 @@ class VerifyCsrfToken extends Middleware
         '/Registrar',
         '/Nuevo_Producto',
         '/Nueva_Categoria',
-        '/Nuevo_Empleado'
+        '/Nuevo_Empleado',
+        '/registro',
+        '/login',
+        '/cuentas_no_asociadas',
+        'cuentas_asociadas',
     ];
 }
